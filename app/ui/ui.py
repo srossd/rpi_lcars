@@ -10,12 +10,12 @@ class UserInterface:
                  ui_placement_mode=False, fps=60, dev_mode=False, audio=True, cal=None,
                  audio_params=(22050, -8, 1, 1024)):
         # init system
-        os.environ['SDL_VIDEO_WINDOW_POS'] = "{0},{1}".format(0, 0)
+        # os.environ['SDL_VIDEO_WINDOW_POS'] = "{0},{1}".format(0, 0)
         pygame.display.init()
         pygame.font.init()
         sound.init(audio_params)
 
-        self.screenSurface = pygame.display.set_mode(resolution, pygame.NOFRAME)
+        self.screenSurface = pygame.display.set_mode(resolution, pygame.FULLSCREEN)
         self.fpsClock = pygame.time.Clock()
         self.fps = fps
         pygame.display.set_caption("LCARS")
