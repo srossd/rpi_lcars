@@ -4,6 +4,6 @@ RESOLUTION = (800, 480)
 # RESOLUTION = (1366, 768)
 FPS = 60
 DEV_MODE = True
-SOUND = False
+SOUND = True
 PIN = '7574'
 CAL = None
