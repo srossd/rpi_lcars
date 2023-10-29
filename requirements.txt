@@ -1,4 +1,6 @@
 pygame>=1.9.1
 pillow
 psutil
-
+pyowm
+pytz
+recurring-ical-events
