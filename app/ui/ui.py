@@ -15,7 +15,9 @@ class UserInterface:
         pygame.font.init()
         sound.init(audio_params)
 
-        self.screenSurface = pygame.display.set_mode(resolution, pygame.FULLSCREEN)
+        self.realSurface = pygame.display.set_mode(resolution, pygame.FULLSCREEN)
+        self.screen_width, self.screen_height = self.realSurface.get_width(), self.realSurface.get_height()
+        self.screenSurface = pygame.Surface((800, 400))
         self.fpsClock = pygame.time.Clock()
         self.fps = fps
         pygame.display.set_caption("LCARS")
@@ -33,6 +35,8 @@ class UserInterface:
         self.running = True
 
     def update(self):
+        scaled_surface = pygame.transform.scale(self.screenSurface, (self.screen_width, self.screen_height))
+        self.realSurface.blit(scaled_surface, (0, 0))
         self.screen.pre_update(self.screenSurface, self.fpsClock)
         self.all_sprites.update(self.screenSurface)
         self.screen.update(self.screenSurface, self.fpsClock)
