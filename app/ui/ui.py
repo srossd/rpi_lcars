@@ -17,7 +17,7 @@ class UserInterface:
 
         self.realSurface = pygame.display.set_mode(resolution, pygame.FULLSCREEN)
         self.screen_width = self.realSurface.get_width()
-        self.screen_height = 3*self.screen_width/4
+        self.screen_height = 3*self.screen_width//4
 
         self.screenSurface = pygame.Surface((800, 600))
         self.fpsClock = pygame.time.Clock()
@@ -56,9 +56,7 @@ class UserInterface:
     
             if event.type == MOUSEBUTTONDOWN and hasattr(event, "pos"):
                 print(self.screen_width)
-                print(event.pos)
                 event.pos = (event.pos[0]*800/self.screen_width, event.pos[1]*600/self.screen_height)
-                print(event.pos)
             for sprite in self.all_sprites.sprites():
                 if hasattr(event, "pos"):
                     focussed = sprite.rect.collidepoint(event.pos)
