@@ -16,9 +16,10 @@ class UserInterface:
         sound.init(audio_params)
 
         self.realSurface = pygame.display.set_mode(resolution, pygame.FULLSCREEN)
-        self.screen_width, self.screen_height = self.realSurface.get_width(), self.realSurface.get_height()
-        print((self.screen_width, self.screen_height))
-        self.screenSurface = pygame.Surface((800, 400))
+        self.screen_width = self.realSurface.get_width()
+        self.screen_height = 3*self.screen_width/4
+
+        self.screenSurface = pygame.Surface((800, 600))
         self.fpsClock = pygame.time.Clock()
         self.fps = fps
         pygame.display.set_caption("LCARS")
@@ -56,7 +57,7 @@ class UserInterface:
             if event.type == MOUSEBUTTONDOWN and hasattr(event, "pos"):
                 print(self.screen_width)
                 print(event.pos)
-                event.pos = (event.pos[0]*800/self.screen_width, event.pos[1]*400/self.screen_height)
+                event.pos = (event.pos[0]*800/self.screen_width, event.pos[1]*600/self.screen_height)
                 print(event.pos)
             for sprite in self.all_sprites.sprites():
                 if hasattr(event, "pos"):
