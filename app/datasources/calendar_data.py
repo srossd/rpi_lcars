@@ -5,7 +5,7 @@ import datetime
 
 def get_events(url):
     start_date = datetime.datetime.now()
-    end_date =   start_date + datetime.timedelta(days=30)
+    end_date =   start_date + datetime.timedelta(days=7)
 
     ical_string = urllib.request.urlopen(url).read()
     calendar = icalendar.Calendar.from_ical(ical_string)
