@@ -6,7 +6,7 @@ from ui.utils import sound
 
 
 class UserInterface:
-    def __init__(self, screen, resolution=(720,480),
+    def __init__(self, screen, resolution=(1024,600),
                  ui_placement_mode=False, fps=60, dev_mode=False, audio=True, cal=None,
                  audio_params=(22050, -8, 1, 1024)):
         # init system
