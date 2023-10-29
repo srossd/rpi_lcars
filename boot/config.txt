@@ -23,12 +23,12 @@ hdmi_force_hotplug=1
 # Settings for 800x480 LCD (e.g. Raspi/Waveshare touch screen)
 hdmi_group=2
 hdmi_mode=87
-hdmi_cvt=800 480 60 6 0 0 0
+hdmi_cvt=720 480 60 6 0 0 0
 max_usb_current=1
 
 # uncomment to force a HDMI mode rather than DVI. This can make audio work in
 # DMT (computer monitor) modes
-#hdmi_drive=2
+hdmi_drive=2
 
 # uncomment to increase signal to HDMI, if you have interference, blanking, or
 # no display
