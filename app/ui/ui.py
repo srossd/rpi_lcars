@@ -16,7 +16,7 @@ class UserInterface:
         sound.init(audio_params)
 
         self.realSurface = pygame.display.set_mode(resolution, pygame.FULLSCREEN)
-        self.screen_width, self.screen_height = self.realSurface.get_width(), self.realSurface.get_height()
+        self.screen_width, self.screen_height = 1024, 600
         self.screenSurface = pygame.Surface((800, 400))
         self.fpsClock = pygame.time.Clock()
         self.fps = fps
