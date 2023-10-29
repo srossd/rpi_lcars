@@ -11,6 +11,10 @@ from datasources.calendar_data import get_events
 
 
 class ScreenMain(LcarsScreen):
+    def __init__(self, cal = None):
+        LcarsScreen.__init__(self)
+        self.cal = cal
+    
     def setup(self, all_sprites):
         self.background = LcarsBackgroundImage("assets/lcars_screen_1.png")
 
@@ -157,11 +161,12 @@ class ScreenMain(LcarsScreen):
         self.dashboard.visible = False
         self.hideWeatherComps()
 
-        events = get_events()
-        for idx, event in enumerate(events):
-            if idx < 4:
-                self.calendar_events[idx].setText(f"{event['name']}: {event['start']} - {event['end']}")
-        self.showEvents()
+        if self.cal:
+            events = get_events(self.cal)
+            for idx, event in enumerate(events):
+                if idx < 4:
+                    self.calendar_events[idx].setText(f"{event['name']}: {event['start']} - {event['end']}")
+            self.showEvents()
 
     def weatherHandler(self, item, event, clock):
         self.hideInfoText()

@@ -6,3 +6,4 @@ FPS = 60
 DEV_MODE = True
 SOUND = False
 PIN = '7574'
+CAL = None

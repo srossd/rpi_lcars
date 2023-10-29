@@ -81,7 +81,7 @@ class ScreenAuthorize(LcarsScreen):
                 if (self.correct == len(config.PIN)):
                     self.sound_granted.play()
                     from screens.main import ScreenMain
-                    self.loadScreen(ScreenMain())
+                    self.loadScreen(ScreenMain(config.CAL))
                 else:
                     self.sound_deny2.play()
                     self.sound_denied.play()
