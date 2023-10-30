@@ -7,13 +7,14 @@ def convert_time(timestamp_utc):
     return datetime.fromtimestamp(timestamp_utc, tz=pytz.utc).astimezone(local_timezone)
 
 def key_data(w):
+    print(w)
     return {
         'time': convert_time(w.reference_time()),
         'status': w.status,
         'temperature': round(w.temperature('fahrenheit')['temp']),
         'humidity': w.humidity,
-        'rainfall': w.rain['3h'] if w.rain else 0,    
-        'snowfall': w.snow['3h'] if w.snow else 0
+        'rainfall': w.rain['3h'] if w.rain and hasattr(w.rain, '3h') else 0,    
+        'snowfall': w.snow['3h'] if w.snow and hasattr(w.rain, '3h') else 0
     }
 
 def get_weather_data():
