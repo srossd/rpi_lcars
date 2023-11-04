@@ -12,7 +12,7 @@ def get_events(url):
     events = recurring_ical_events.of(calendar).between(start_date, end_date)
     ans = []
 
-    events.sort(lambda x: x["DTSTART"].dt)
+    events.sort(key = lambda x: x["DTSTART"].dt)
 
     for event in events:
         name = event["SUMMARY"]
